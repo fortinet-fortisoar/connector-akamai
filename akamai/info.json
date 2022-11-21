@@ -1,0 +1,307 @@
+{
+  "name": "akamai",
+  "label": "Akamai",
+  "description": "Akamai is an American content delivery network (CDN), cybersecurity, and cloud service company, providing web and Internet security services.",
+  "publisher": "Community",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "version": "1.0.0",
+  "category": "Investigation",
+  "icon_small_name": "Akamai_small.png",
+  "icon_large_name": "Akamai_large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "server_url",
+        "description": "URL of the Akamai server to which you will connect and perform the automated operations."
+      },
+      {
+        "title": "Client token",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "client_token",
+        "description": "Client token used to access the Akamai server to which you will connect and perform the automated operations."
+      },
+      {
+        "title": "Access token",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "access_token",
+        "description": "Access token used to access the Akamai server to which you will connect and perform the automated operations."
+      },
+      {
+        "title": "Client secret",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "client_secret",
+        "value": "",
+        "description": "Client secret of the Akamai server to which you will connect and perform the automated operations."
+      },
+      {
+        "title": "Verify SSL",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "value": true,
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "list_critical_events",
+      "title": "List Critical Events",
+      "description": "Retrieves a critical events list for a customer from Akamai based on the input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "list_critical_events",
+      "output_schema": {
+        "status": "",
+        "currentContract": "",
+        "statusMsg": "",
+        "data": [
+          {
+            "siteType": "",
+            "source": "",
+            "location": "",
+            "ip": "",
+            "summary": "",
+            "instance": "",
+            "interfaceName": "",
+            "count": "",
+            "siteCustomerName": "",
+            "eventId": "",
+            "siteName": "",
+            "acknowledged": "",
+            "state": "",
+            "recentOccur": "",
+            "expires": "",
+            "node": "",
+            "importance": "",
+            "notes": "",
+            "firstOccur": "",
+            "description": ""
+          }
+        ]
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Contract Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "contract",
+          "value": "",
+          "tooltip": "Contract name. e.g. coral",
+          "description": "The policy domain name of the data center or proxy that events belong to."
+        }
+      ]
+    },
+    {
+      "operation": "list_events",
+      "title": "List Events",
+      "description": "Retrieves an events list for a customer from Akamai based on the input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "list_events",
+      "output_schema": {
+        "status": "",
+        "currentContract": "",
+        "statusMsg": "",
+        "data": [
+          {
+            "service": "",
+            "eventType": "",
+            "isOngoing": "",
+            "eventStartTime": "",
+            "eventTitle": "",
+            "severity": "",
+            "eventEndTime": "",
+            "eventInfo": {
+              "location": "",
+              "lastOccurred": "",
+              "attackId": ""
+            }
+          },
+          {
+            "service": "",
+            "eventType": "",
+            "isOngoing": "",
+            "eventStartTime": "",
+            "eventTitle": "",
+            "severity": "",
+            "eventEndTime": "",
+            "eventInfo": {
+              "eventTicketId": "",
+              "attackType": "",
+              "endTime": "",
+              "attackEventId": "",
+              "destinationIPs": "",
+              "startTime": ""
+            }
+          }
+        ]
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Contract Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "contract",
+          "value": "",
+          "tooltip": "Contract name. e.g. coral",
+          "description": "The policy domain name of the data center or proxy that events belong to."
+        }
+      ]
+    },
+    {
+      "operation": "list_attack_reports",
+      "title": "List Attack Reports",
+      "description": "Retrieves a list of attack reports for a customer within the specified time range from Akamai.",
+      "category": "investigation",
+      "annotation": "list_attack_reports",
+      "output_schema": {
+        "status": "",
+        "currentContract": "",
+        "statusMsg": "",
+        "data": [
+          {
+            "attackId": "",
+            "destinationPort": "",
+            "eventStartTime": "",
+            "ticketId": "",
+            "eventEndTime": "",
+            "eventStartTimeAsString": "",
+            "endTime": "",
+            "eventId": "",
+            "eventEndTimeAsString": "",
+            "startTime": "",
+            "eventTypes": [
+            ],
+            "peaks": [
+              {
+                "location": "",
+                "peakId": "",
+                "bandwidth": "",
+                "pps": ""
+              }
+            ],
+            "destinations": [
+              {
+                "netmask": "",
+                "ip": ""
+              }
+            ]
+          }
+        ]
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Start Time",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "start",
+          "value": "",
+          "description": "Starting datetime from when you want to retrieve attack report."
+        },
+        {
+          "title": "End Time",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "end",
+          "value": "",
+          "description": "Ending datetime from when you want to retrieve attack report."
+        },
+        {
+          "title": "Contract Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "contract",
+          "value": "",
+          "tooltip": "Contract name. e.g. coral",
+          "description": "The policy domain name of the data center or proxy that events belong to."
+        }
+      ]
+    },
+    {
+      "operation": "get_an_attack_report",
+      "title": "Get An Attack Report",
+      "description": "Retrieves an attack report for the specified customer and Attack ID from Akamai.",
+      "category": "investigation",
+      "annotation": "get_an_attack_report",
+      "output_schema": {
+        "status": "",
+        "currentContract": "",
+        "statusMsg": "",
+        "data": [
+          {
+            "attackId": "",
+            "destinationPort": "",
+            "eventStartTime": "",
+            "eventPeakId": "",
+            "attackTypeName": "",
+            "netmask": "",
+            "eventEndTime": "",
+            "location": "",
+            "endTime": "",
+            "eventBw": "",
+            "ticketId": "",
+            "eventId": "",
+            "eventPps": "",
+            "ip": "",
+            "startTime": ""
+          }
+        ]
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Attack ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "attackId",
+          "value": "",
+          "tooltip": "Contract name. e.g. coral",
+          "description": "A unique ID for each attack that you want to retrieve from Akamai."
+        },
+        {
+          "title": "Contract Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "contract",
+          "value": "",
+          "tooltip": "Contract name. e.g. coral",
+          "description": "The policy domain name of the data center or proxy that events belong to."
+        }
+      ]
+    }
+  ]
+}
