@@ -5,7 +5,7 @@
       "uuid": "18eae72e-136b-4d88-a054-5583230a2d23",
       "@type": "WorkflowCollection",
       "name": "Sample - Akamai - 1.0.0",
-      "description": "FortiAnalyzer is the NOC-SOC security analysis tool built with operations perspective. With action-oriented views and deep drill-down capabilities, FortiAnalyzer not only gives organizations critical insight into threats, but also accurately scopes risk across the attack surface, pinpointing where immediate response is required.",
+      "description": "Akamai is an American content delivery network (CDN), cybersecurity, and cloud service company, providing web and Internet security services.",
       "visible": true,
       "image": null,
       "recordTags": [
