@@ -1,14 +1,14 @@
 {
   "name": "akamai",
-  "label": "Akamai",
+  "label": "Akamai Prolexic",
   "description": "Akamai is an American content delivery network (CDN), cybersecurity, and cloud service company, providing web and Internet security services.",
   "publisher": "Community",
   "cs_approved": false,
   "cs_compatible": true,
   "version": "1.0.0",
-  "category": "Investigation",
+  "category": "Network Security",
   "icon_small_name": "Akamai_small.png",
-  "icon_large_name": "Akamai_large.png",
+  "icon_large_name": "Akamai_medium.png",
   "help_online": "",
   "configuration": {
     "fields": [
@@ -22,7 +22,7 @@
         "description": "URL of the Akamai server to which you will connect and perform the automated operations."
       },
       {
-        "title": "Client token",
+        "title": "Client Token",
         "required": true,
         "editable": true,
         "visible": true,
@@ -31,7 +31,7 @@
         "description": "Client token used to access the Akamai server to which you will connect and perform the automated operations."
       },
       {
-        "title": "Access token",
+        "title": "Access Token",
         "required": true,
         "editable": true,
         "visible": true,
@@ -40,13 +40,12 @@
         "description": "Access token used to access the Akamai server to which you will connect and perform the automated operations."
       },
       {
-        "title": "Client secret",
+        "title": "Client Secret",
         "required": true,
         "editable": true,
         "visible": true,
         "type": "password",
         "name": "client_secret",
-        "value": "",
         "description": "Client secret of the Akamai server to which you will connect and perform the automated operations."
       },
       {
@@ -106,9 +105,8 @@
           "visible": true,
           "type": "text",
           "name": "contract",
-          "value": "",
           "tooltip": "Contract name. e.g. coral",
-          "description": "The policy domain name of the data center or proxy that events belong to."
+          "description": "The contract is the policy domain name of the data center or proxy that events belong to."
         }
       ]
     },
@@ -165,9 +163,8 @@
           "visible": true,
           "type": "text",
           "name": "contract",
-          "value": "",
           "tooltip": "Contract name. e.g. coral",
-          "description": "The policy domain name of the data center or proxy that events belong to."
+          "description": "The contract is the policy domain name of the data center or proxy that events belong to."
         }
       ]
     },
@@ -221,7 +218,6 @@
           "visible": true,
           "type": "datetime",
           "name": "start",
-          "value": "",
           "description": "Starting datetime from when you want to retrieve attack report."
         },
         {
@@ -231,7 +227,6 @@
           "visible": true,
           "type": "datetime",
           "name": "end",
-          "value": "",
           "description": "Ending datetime from when you want to retrieve attack report."
         },
         {
@@ -241,9 +236,8 @@
           "visible": true,
           "type": "text",
           "name": "contract",
-          "value": "",
           "tooltip": "Contract name. e.g. coral",
-          "description": "The policy domain name of the data center or proxy that events belong to."
+          "description": "The contract is the policy domain name of the data center or proxy that events belong to."
         }
       ]
     },
@@ -286,8 +280,7 @@
           "visible": true,
           "type": "integer",
           "name": "attackId",
-          "value": "",
-          "tooltip": "Contract name. e.g. coral",
+          "tooltip": "A unique ID for each attack. e.g. 1966.",
           "description": "A unique ID for each attack that you want to retrieve from Akamai."
         },
         {
@@ -297,9 +290,8 @@
           "visible": true,
           "type": "text",
           "name": "contract",
-          "value": "",
           "tooltip": "Contract name. e.g. coral",
-          "description": "The policy domain name of the data center or proxy that events belong to."
+          "description": "The contract is the policy domain name of the data center or proxy that events belong to."
         }
       ]
     }

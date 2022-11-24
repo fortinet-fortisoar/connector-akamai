@@ -24,7 +24,6 @@ class Akamai():
         self.access_token = config.get('access_token')
         self.client_secret = config.get('client_secret')
         self.verify_ssl = config.get('verify_ssl')
-        self.session = None
 
     def make_api_call(self, method='GET', endpoint=None, params=None, data=None,
                       json=None, flag=False):
@@ -48,9 +47,9 @@ class Akamai():
             if response.ok:
                 result = response.json()
                 return result
-            elif messages_codes[response.status_code]:
+            elif messages_codes.get(response.status_code):
                 logger.error('{0}'.format(response.content))
-                raise ConnectorError('{0}'.format(messages_codes[response.status_code]))
+                raise ConnectorError('{0}'.format(messages_codes.get(response.status_code)))
             else:
                 logger.error(
                     'Fail To request API {0} response is : {1} with reason: {2}'.format(str(url),
@@ -64,10 +63,10 @@ class Akamai():
 
         except requests.exceptions.SSLError as e:
             logger.exception('{0}'.format(e))
-            raise ConnectorError('{0}'.format(messages_codes['ssl_error']))
+            raise ConnectorError('{0}'.format(messages_codes.get('ssl_error')))
         except requests.exceptions.ConnectionError as e:
             logger.exception('{0}'.format(e))
-            raise ConnectorError('{0}'.format(messages_codes['timeout_error']))
+            raise ConnectorError('{0}'.format(messages_codes.get('timeout_error')))
         except Exception as e:
             logger.exception('{0}'.format(e))
             raise ConnectorError('{0}'.format(e))
