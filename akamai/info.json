@@ -9,7 +9,7 @@
   "category": "Network Security",
   "icon_small_name": "Akamai_small.png",
   "icon_large_name": "Akamai_medium.png",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/akamai-prolexic/454/akamai-prolexic-v1-0-0",
   "configuration": {
     "fields": [
       {
@@ -19,7 +19,7 @@
         "visible": true,
         "type": "text",
         "name": "server_url",
-        "description": "URL of the Akamai server to which you will connect and perform the automated operations."
+        "description": "URL or host of the Akamai server to which you connect and perform the automated operations. This information is contained in the host field when accessing the Akamai API."
       },
       {
         "title": "Client Token",
@@ -28,7 +28,7 @@
         "visible": true,
         "type": "password",
         "name": "client_token",
-        "description": "Client token used to access the Akamai server to which you will connect and perform the automated operations."
+        "description": "Client token used to access the Akamai server to which you will connect and perform the automated operations. This information is contained in the Client_token field when accessing the Akamai API."
       },
       {
         "title": "Access Token",
@@ -37,7 +37,7 @@
         "visible": true,
         "type": "password",
         "name": "access_token",
-        "description": "Access token used to access the Akamai server to which you will connect and perform the automated operations."
+        "description": "Access token used to access the Akamai server to which you will connect and perform the automated operations. This information is contained in the access_token field when accessing the Akamai API."
       },
       {
         "title": "Client Secret",
@@ -46,7 +46,7 @@
         "visible": true,
         "type": "password",
         "name": "client_secret",
-        "description": "Client secret of the Akamai server to which you will connect and perform the automated operations."
+        "description": "Client secret of the Akamai server to which you will connect and perform the automated operations. This information is contained in the client_secret field when accessing the Akamai API."
       },
       {
         "title": "Verify SSL",
@@ -64,7 +64,7 @@
     {
       "operation": "list_critical_events",
       "title": "List Critical Events",
-      "description": "Retrieves a critical events list for a customer from Akamai based on the input parameters you have specified.",
+      "description": "Retrieves a list of critical events for a customer from Akamai based on the contract name you have specified.",
       "category": "investigation",
       "annotation": "list_critical_events",
       "output_schema": {
@@ -106,14 +106,14 @@
           "type": "text",
           "name": "contract",
           "tooltip": "Contract name. e.g. coral",
-          "description": "The contract is the policy domain name of the data center or proxy that events belong to."
+          "description": "Specify the policy domain name of the data center or proxy to which events belong. This is also known as Contract in Akamai."
         }
       ]
     },
     {
       "operation": "list_events",
       "title": "List Events",
-      "description": "Retrieves an events list for a customer from Akamai based on the input parameters you have specified.",
+      "description": "Retrieves a list of all events for a customer from Akamai based on the contract name you have specified.",
       "category": "investigation",
       "annotation": "list_events",
       "output_schema": {
@@ -164,14 +164,14 @@
           "type": "text",
           "name": "contract",
           "tooltip": "Contract name. e.g. coral",
-          "description": "The contract is the policy domain name of the data center or proxy that events belong to."
+          "description": "Specify the policy domain name of the data center or proxy to which events belong. This is also known as Contract in Akamai."
         }
       ]
     },
     {
       "operation": "list_attack_reports",
       "title": "List Attack Reports",
-      "description": "Retrieves a list of attack reports for a customer within the specified time range from Akamai.",
+      "description": "Retrieves a list of attack reports for a customer from Akamai based on the contract name and the time range you have specified.",
       "category": "investigation",
       "annotation": "list_attack_reports",
       "output_schema": {
@@ -218,7 +218,7 @@
           "visible": true,
           "type": "datetime",
           "name": "start",
-          "description": "Starting datetime from when you want to retrieve attack report."
+          "description": "Specify the start date-time of the range from when you want to retrieve the attack report."
         },
         {
           "title": "End Time",
@@ -227,7 +227,7 @@
           "visible": true,
           "type": "datetime",
           "name": "end",
-          "description": "Ending datetime from when you want to retrieve attack report."
+          "description": "Specify the end date-time of the range till when you want to retrieve the attack report."
         },
         {
           "title": "Contract Name",
@@ -237,14 +237,14 @@
           "type": "text",
           "name": "contract",
           "tooltip": "Contract name. e.g. coral",
-          "description": "The contract is the policy domain name of the data center or proxy that events belong to."
+          "description": "Specify the policy domain name of the data center or proxy to which events belong. This is also known as Contract in Akamai."
         }
       ]
     },
     {
       "operation": "get_an_attack_report",
       "title": "Get An Attack Report",
-      "description": "Retrieves an attack report for the specified customer and Attack ID from Akamai.",
+      "description": "Retrieves an attack report for a customer from Akamai based on the contract name and Attack ID you have specified.",
       "category": "investigation",
       "annotation": "get_an_attack_report",
       "output_schema": {
@@ -281,7 +281,7 @@
           "type": "integer",
           "name": "attackId",
           "tooltip": "A unique ID for each attack. e.g. 1966.",
-          "description": "A unique ID for each attack that you want to retrieve from Akamai."
+          "description": "Specify the unique ID of each attack that you want to retrieve from Akamai. This ID is returned in the output when listing attack reports."
         },
         {
           "title": "Contract Name",
@@ -291,7 +291,7 @@
           "type": "text",
           "name": "contract",
           "tooltip": "Contract name. e.g. coral",
-          "description": "The contract is the policy domain name of the data center or proxy that events belong to."
+          "description": "Specify the policy domain name of the data center or proxy to which events belong. This is also known as Contract in Akamai."
         }
       ]
     }
