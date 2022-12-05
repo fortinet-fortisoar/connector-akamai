@@ -15,7 +15,7 @@ logger = get_logger('akamai')
 
 class Akamai():
     def __init__(self, config):
-        self.server_url = config.get('server_url')
+        self.server_url = config.get('server_url').strip('/')
 
         if not self.server_url.startswith('https://') and not self.server_url.startswith('http://'):
             self.server_url = 'https://' + self.server_url
